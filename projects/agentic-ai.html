@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentic Maintenance Platform · ashmi.design</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-theme="light">
+<script>
+(function(){
+  try{
+    var saved = localStorage.getItem('theme');
+    if(saved === 'dark'){ document.body.setAttribute('data-theme', 'dark'); }
+  }catch(e){}
+})();
+</script>
+
+<div id="pulse"></div>
+
+<header>
+  <a class="wordmark" href="../index.html" style="text-decoration:none; color:var(--ink);">ashmi<span class="cursor">_</span></a>
+  <nav>
+    <a href="../index.html#work" data-hover>Work</a>
+    <a href="../index.html#leadership" data-hover>Leadership</a>
+    <a href="../index.html#personal" data-hover>Personal</a>
+    <a href="../index.html#about" data-hover>About</a>
+    <a href="../index.html#contact" data-hover>Contact</a>
+  </nav>
+  <div class="controls">
+    <div class="sound-btn-wrap">
+      <button class="icon-btn" id="soundToggle" title="Toggle sound" aria-pressed="false">
+        <svg id="soundIconOn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+          <path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/>
+        </svg>
+        <svg id="soundIconOff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M11 5 6 9H2v6h4l5 4V5Z"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/>
+        </svg>
+      </button>
+      <div class="sound-popup" id="soundPopup">
+        This site has sound, try it
+        <button id="soundPopupClose" aria-label="Dismiss">✕</button>
+      </div>
+    </div>
+    <div class="switch" id="themeSwitch" role="button" aria-label="Toggle dark mode">
+      <span class="glyph sun">☀</span><span class="glyph moon">☾</span>
+      <div class="knob"></div>
+    </div>
+  </div>
+</header>
+
+<section class="cs-hero">
+  <a class="cs-back" href="../index.html#work">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Back to all work
+  </a>
+  <span class="tag">End-to-End UX · AI Product · Confidential</span>
+  <h1 class="cs-title" style="text-align:left; margin-left:0;">Agentic Maintenance Platform</h1>
+  <p class="cs-subtitle">Redesigning journey map maintenance for a customer experience platform, with
+  an agentic AI layer that keeps content fresh without taking control away from the people who own it.</p>
+
+  <div class="cs-meta">
+    <div class="cs-meta-item"><b>Role</b>UX Designer, Purdue UXD Experience Studio</div>
+    <div class="cs-meta-item"><b>Timeline</b>Jan 2026 to May 2026</div>
+    <div class="cs-meta-item"><b>Team</b>8-person Purdue UX team</div>
+    <div class="cs-meta-item"><b>Tools</b>Figma, Usability Testing, Prototyping</div>
+  </div>
+</section>
+
+<div style="margin:0 clamp(20px,5vw,64px) 44px; padding:16px 20px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface-2); display:flex; gap:10px; align-items:flex-start;">
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--ink-soft)" stroke-width="2" style="flex-shrink:0; margin-top:2px;"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+  <p style="font-family:'IBM Plex Mono', monospace; font-size:.76rem; color:var(--ink-soft); line-height:1.6; margin:0;">
+    Client and proprietary details have been withheld under NDA. This case study describes process,
+    decisions, and outcomes at a high level only.
+  </p>
+</div>
+
+<section class="cs-section cs-overview">
+  <div class="cs-section-label">The problem</div>
+  <h2 style="font-family:'Fraunces', serif; font-weight:700; font-size:1.6rem; margin:0 0 18px;">Journey maps go stale. Nobody notices.</h2>
+  <p>Journey maps are living documents that need to evolve as customer experiences change, products
+  update, and new data emerges. But on this platform, there was no system to alert users when their
+  content became outdated, personas aged out of date, insights no longer matched current metrics,
+  touchpoints drifted from reality.</p>
+  <p>Users relied on manual review and indirect signals to catch stale content, which led to
+  inefficiency, disconnected data, and eroding trust in the maps themselves.</p>
+
+  <div style="border-left:3px solid var(--accent); background:var(--accent-soft); border-radius:0 var(--radius) var(--radius) 0; padding:20px 24px; margin-top:24px;">
+    <div style="font-family:'IBM Plex Mono', monospace; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin-bottom:8px;">Problem statement</div>
+    <p style="font-family:'Fraunces', serif; font-weight:700; font-style:italic; font-size:1.15rem; color:var(--ink); margin:0; line-height:1.5; max-width:none;">
+      How might we help journey map owners identify and address outdated content, so their maps stay
+      accurate, trustworthy, and actionable over time?
+    </p>
+  </div>
+</section>
+
+<section class="cs-section">
+  <div class="cs-section-label">Who are the users</div>
+  <p style="color:var(--ink-soft); font-size:.92rem; max-width:70ch; margin:0 0 24px;">
+    The client is a customer journey management platform that helps organizations understand their
+    customers by building, analyzing, and maintaining journey maps. The platform already supported
+    creation, analytics, and AI-assisted content generation, but maintaining those journeys over time
+    was a gap.
+  </p>
+  <div class="cs-outcome-grid cs-outcome-4col">
+    <div class="credential" style="--credential-accent: var(--accent);">
+      <div class="credential-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <b>CX professionals</b>Customer experience strategists and journey owners
+    </div>
+    <div class="credential" style="--credential-accent: var(--c1);">
+      <div class="credential-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      </div>
+      <b>Product managers</b>Using journey maps to align product decisions
+    </div>
+    <div class="credential" style="--credential-accent: var(--c3);">
+      <div class="credential-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+      </div>
+      <b>Service designers</b>Mapping end-to-end service experiences
+    </div>
+    <div class="credential" style="--credential-accent: var(--c4);">
+      <div class="credential-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      </div>
+      <b>Enterprise teams</b>Organizations managing multiple journey maps
+    </div>
+  </div>
+</section>
+
+<section class="cs-section">
+  <div class="cs-section-label">Process</div>
+  <div class="cs-process-grid">
+    <div class="cs-step">
+      <div class="cs-step-num">01</div>
+      <div style="border-radius:var(--radius); overflow:hidden; aspect-ratio:3120/1200; border:1px solid var(--line);">
+        <img src="../assets/img/heuristic-jt.jpg" alt="Heuristic analysis matrix evaluating a competing platform against Nielsen's 10 usability heuristics, with severity ratings and recommendations" style="width:100%; height:100%; object-fit:contain; display:block;">
+      </div>
+      <p>Conducted desk research, competitive analysis, and a heuristic evaluation against Nielsen's
+      10 usability heuristics on a competing platform, grounding our direction in real gaps rather
+      than assumptions.</p>
+    </div>
+    <div class="cs-step">
+      <div class="cs-step-num">02</div>
+      <p>Led 3 of 6 semi-structured interviews with real platform users, surfacing unmet needs, most
+      notably that users had no way to know when their content had gone out of date.</p>
+    </div>
+    <div class="cs-step">
+      <div class="cs-step-num">03</div>
+      <p>Translated research into a high-fidelity interactive prototype across multiple rounds of
+      iteration, from early concept sketches to a working agentic AI experience.</p>
+    </div>
+    <div class="cs-step">
+      <div class="cs-step-num">04</div>
+      <p>Helped synthesize findings across 6 usability tests, then presented design decisions and
+      rationale directly to the client's CEO and VP of Product.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cs-section">
+  <div class="cs-section-label">The solution</div>
+  <h2 style="font-family:'Fraunces', serif; font-weight:700; font-size:1.6rem; margin:0 0 14px;">An <em style="color:var(--accent); font-style:italic;">agentic AI</em> maintenance agent</h2>
+  <p style="color:var(--ink-soft); font-size:.94rem; max-width:70ch; margin:0 0 24px;">
+    The final design introduces two complementary AI capabilities. Together they reduce manual
+    maintenance, improve visibility into outdated content, and keep users in control at every step.
+  </p>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:start;">
+    <div style="border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); padding:24px;">
+      <span class="tag" style="margin-bottom:14px; display:inline-block;">Proactive · Agentic</span>
+      <h3 style="font-family:'Manrope', sans-serif; font-weight:700; font-size:1.05rem; margin:0 0 10px;">Proactive monitoring agent</h3>
+      <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:16px;">
+        <div style="border-left:3px solid var(--c1); padding-left:12px;">
+          <div style="font-family:'Manrope', sans-serif; font-weight:700; font-size:.85rem; color:var(--ink);">Always-on detection</div>
+          <div style="font-family:'Manrope', sans-serif; font-size:.8rem; color:var(--ink-soft); margin-top:2px;">Continuously monitors journey maps for signs of stale content before it compounds</div>
+        </div>
+        <div style="border-left:3px solid var(--c1); padding-left:12px;">
+          <div style="font-family:'Manrope', sans-serif; font-weight:700; font-size:.85rem; color:var(--ink);">Evidence-backed suggestions</div>
+          <div style="font-family:'Manrope', sans-serif; font-size:.8rem; color:var(--ink-soft); margin-top:2px;">Every flag comes with a clear rationale, not a black-box recommendation</div>
+        </div>
+        <div style="border-left:3px solid var(--c1); padding-left:12px;">
+          <div style="font-family:'Manrope', sans-serif; font-weight:700; font-size:.85rem; color:var(--ink);">User control</div>
+          <div style="font-family:'Manrope', sans-serif; font-size:.8rem; color:var(--ink-soft); margin-top:2px;">Approve, deny, or snooze, the agent assists but never overwrites</div>
+        </div>
+      </div>
+      <div style="border-radius:calc(var(--radius) - 4px); overflow:hidden; aspect-ratio:1490/866; background:#000;">
+        <video style="width:100%; height:100%; object-fit:cover; display:block;"
+          src="../assets/video/jt-ai-suggestions.mp4"
+          poster="../assets/img/jt-ai-suggestions-poster.jpg"
+          controls muted playsinline preload="metadata"></video>
+      </div>
+    </div>
+
+    <div style="border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); padding:24px;">
+      <span class="tag" style="margin-bottom:14px; display:inline-block;">Reactive · Prompt AI</span>
+      <h3 style="font-family:'Manrope', sans-serif; font-weight:700; font-size:1.05rem; margin:0 0 10px;">Reactive intelligence agent</h3>
+      <p style="color:var(--ink-soft); font-size:.85rem; line-height:1.65; margin:0 0 14px;">
+        Users told us they wanted to ask questions about their journey and get direct answers without
+        digging through data. This agent is fully reactive and user-initiated, letting people engage
+        with AI on their own terms through natural conversation linked to specific map elements.
+      </p>
+      <div style="border-radius:calc(var(--radius) - 4px); overflow:hidden; max-height:420px; background:#000; display:flex; justify-content:center;">
+        <video style="height:420px; width:auto; max-width:100%; object-fit:contain; display:block;"
+          src="../assets/video/jt-ai-agent.mp4"
+          poster="../assets/img/jt-ai-agent-poster.jpg"
+          controls muted playsinline preload="metadata"></video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cs-section">
+  <div class="cs-ai-callout">
+    <div class="icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>
+    </div>
+    <div>
+      <h3>AI & Technical Approach</h3>
+      <p>Designed both the proactive monitoring agent and the reactive chat interface in Figma, then
+      wrote the prompt structures and evidence-based suggestion logic that made the AI's reasoning
+      visible instead of opaque. The goal throughout was an agent that assists without ever quietly
+      taking control away from the user.</p>
+      <div class="ai-tags">
+        <span>Figma</span>
+        <span>Prompt Engineering</span>
+        <span>Agentic AI Design</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cs-section">
+  <div class="cs-section-label">Where it stands</div>
+  <div class="cs-outcome-grid">
+    <div class="credential" style="--credential-accent: var(--c1);">
+      <div class="credential-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <b>Led design</b>Directed end-to-end UX across an 8-person Purdue team
+    </div>
+    <div class="credential" style="--credential-accent: var(--c4);">
+      <div class="credential-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      </div>
+      <b>Validated with users</b>6 usability tests synthesized into iterative design changes
+    </div>
+    <div class="credential" style="--credential-accent: var(--c3);">
+      <div class="credential-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 2h6M10 2v6l-5.5 9.5A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-3.5L14 8V2"/><path d="M7.5 14h9"/></svg>
+      </div>
+      <b>Presented to leadership</b>Delivered findings and prototype directly to the CEO and VP of Product
+    </div>
+  </div>
+</section>
+
+<section class="cs-section">
+  <div class="cs-section-label">Reflection</div>
+  <p class="cs-reflection">"Leading the sponsor meetings taught me more about translating design into
+  business value than any studio project could. When you're speaking to a CEO, 'it looks better'
+  isn't a reason, 'here's the trust we're rebuilding' is."</p>
+</section>
+
+<div class="cs-footer-nav">
+  <a href="../index.html#work">
+    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Back to all work
+  </a>
+  <span style="font-family:'IBM Plex Mono', monospace; font-size:.75rem; color:var(--ink-soft);">Confidential · NDA Project</span>
+</div>
+
+<script src="../assets/script.js"></script>
+<script>
+document.querySelectorAll('.cs-back, .cs-footer-nav a').forEach(link=>{
+  link.addEventListener('click', ()=> tone(329.63, 0.16, 'sine', 0.035, 0, { glide:true }));
+});
+
+document.querySelectorAll('.cs-outcome-4col .credential').forEach((el, i)=>{
+  const notes = [349.23, 392.00, 440.00, 493.88];
+  el.addEventListener('mouseenter', ()=> tone(notes[i % notes.length], 0.18, 'sine', 0.03, 0, { glide:true }));
+});
+
+document.querySelectorAll('.cs-outcome-grid:not(.cs-outcome-4col) .credential').forEach((el, i)=>{
+  const notes = [392.00, 440.00, 523.25];
+  el.addEventListener('mouseenter', ()=> tone(notes[i % notes.length], 0.18, 'sine', 0.03, 0, { glide:true }));
+});
+
+document.querySelectorAll('video').forEach((v, i)=>{
+  let played = false;
+  v.addEventListener('play', ()=>{
+    if(played) return;
+    played = true;
+    tone(440, 0.14, 'sine', 0.035, 0, { glide:true });
+    tone(587.33, 0.18, 'sine', 0.028, 0.06);
+  });
+});
+</script>
+</body>
+</html>
