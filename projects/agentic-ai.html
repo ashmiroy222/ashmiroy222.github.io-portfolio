@@ -5,6 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Agentic Maintenance Platform · ashmi.design</title>
 <link rel="stylesheet" href="../assets/styles.css">
+<style>
+  .lightbox-trigger{ cursor: zoom-in; }
+  .lightbox-overlay{
+    position:fixed; inset:0; background:rgba(10,10,14,.94);
+    display:none; align-items:center; justify-content:center;
+    z-index:999; padding:clamp(20px,6vw,64px); opacity:0; transition:opacity .28s ease;
+  }
+  .lightbox-overlay.show{ display:flex; opacity:1; }
+  .lightbox-overlay img{
+    max-width:92vw; max-height:88vh; border-radius:12px; object-fit:contain;
+    box-shadow:0 24px 70px rgba(0,0,0,.55); display:block;
+    transform:scale(.96); transition:transform .28s cubic-bezier(.2,.8,.3,1);
+  }
+  .lightbox-overlay.show img{ transform:scale(1); }
+  .lightbox-close{
+    position:absolute; top:22px; right:clamp(20px,5vw,64px);
+    width:40px; height:40px; border-radius:50%; border:1px solid rgba(255,255,255,.28);
+    background:rgba(255,255,255,.08); color:#fff; display:flex; align-items:center; justify-content:center;
+    cursor:pointer; font-size:1.05rem; line-height:1; transition:background .2s;
+  }
+  .lightbox-close:hover{ background:rgba(255,255,255,.2); }
+  .lightbox-hint{
+    position:absolute; bottom:22px; left:50%; transform:translateX(-50%);
+    font-family:'IBM Plex Mono', monospace; font-size:.7rem; color:rgba(255,255,255,.55);
+    letter-spacing:.04em;
+  }
+  @media (max-width: 720px){
+    .reactive-card-grid{ grid-template-columns:1fr !important; }
+    .reactive-card-grid > div:last-child{ width:100% !important; max-width:280px; margin:0 auto; }
+  }
+</style>
 </head>
 <body data-theme="light">
 <script>
@@ -59,10 +90,15 @@
   <p class="cs-subtitle">Redesigning journey map maintenance for a customer experience platform, with
   an agentic AI layer that keeps content fresh without taking control away from the people who own it.</p>
 
+  <a href="#solution" data-hover style="display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono', monospace; font-size:.78rem; letter-spacing:.02em; color:#fff; background:var(--accent); padding:10px 18px; border-radius:30px; text-decoration:none; margin-bottom:34px; width:fit-content;">
+    Jump to solution
+    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+  </a>
+
   <div class="cs-meta">
-    <div class="cs-meta-item"><b>Role</b>UX Designer, Purdue UXD Experience Studio</div>
+    <div class="cs-meta-item"><b>Role</b>UX Researcher and Designer, Purdue UXD Experience Studio</div>
     <div class="cs-meta-item"><b>Timeline</b>Jan 2026 to May 2026</div>
-    <div class="cs-meta-item"><b>Team</b>8-person Purdue UX team</div>
+    <div class="cs-meta-item"><b>Team</b>9-person Purdue UX team</div>
     <div class="cs-meta-item"><b>Tools</b>Figma, Usability Testing, Prototyping</div>
   </div>
 </section>
@@ -132,41 +168,99 @@
 
 <section class="cs-section">
   <div class="cs-section-label">Process</div>
-  <div class="cs-process-grid">
+  <div class="cs-process-grid cs-process-3col">
     <div class="cs-step">
-      <div class="cs-step-num">01</div>
-      <div style="border-radius:var(--radius); overflow:hidden; aspect-ratio:3120/1200; border:1px solid var(--line);">
-        <img src="../assets/img/heuristic-jt.jpg" alt="Heuristic analysis matrix evaluating a competing platform against Nielsen's 10 usability heuristics, with severity ratings and recommendations" style="width:100%; height:100%; object-fit:contain; display:block;">
-      </div>
+      <div class="cs-step-num" style="width:38px; height:38px; font-size:.88rem; font-weight:700; color:var(--accent); border:1.5px solid var(--accent); background:var(--accent-soft);">01</div>
       <p>Conducted desk research, competitive analysis, and a heuristic evaluation against Nielsen's
       10 usability heuristics on a competing platform, grounding our direction in real gaps rather
       than assumptions.</p>
     </div>
     <div class="cs-step">
-      <div class="cs-step-num">02</div>
+      <div class="cs-step-num" style="width:38px; height:38px; font-size:.88rem; font-weight:700; color:var(--accent); border:1.5px solid var(--accent); background:var(--accent-soft);">02</div>
       <p>Led 3 of 6 semi-structured interviews with real platform users, surfacing unmet needs, most
       notably that users had no way to know when their content had gone out of date.</p>
     </div>
     <div class="cs-step">
-      <div class="cs-step-num">03</div>
+      <div class="cs-step-num" style="width:38px; height:38px; font-size:.88rem; font-weight:700; color:var(--accent); border:1.5px solid var(--accent); background:var(--accent-soft);">03</div>
+      <p>Ran a Crazy 8s sketching session, moving from individual ideation to group whiteboarding, to
+      pressure-test concepts before narrowing down what to bring to sponsors for selection.</p>
+    </div>
+    <div class="cs-step">
+      <div class="cs-step-num" style="width:38px; height:38px; font-size:.88rem; font-weight:700; color:var(--accent); border:1.5px solid var(--accent); background:var(--accent-soft);">04</div>
       <p>Translated research into a high-fidelity interactive prototype across multiple rounds of
       iteration, from early concept sketches to a working agentic AI experience.</p>
     </div>
     <div class="cs-step">
-      <div class="cs-step-num">04</div>
+      <div class="cs-step-num" style="width:38px; height:38px; font-size:.88rem; font-weight:700; color:var(--accent); border:1.5px solid var(--accent); background:var(--accent-soft);">05</div>
       <p>Helped synthesize findings across 6 usability tests, then presented design decisions and
       rationale directly to the client's CEO and VP of Product.</p>
     </div>
   </div>
+
+  <div style="margin-top:44px;">
+    <div style="display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:16px;">
+      <div style="font-family:'Fraunces', serif; font-style:italic; font-weight:600; font-size:1rem; color:var(--ink);">some process images!!</div>
+      <div style="font-family:'IBM Plex Mono', monospace; font-size:.68rem; letter-spacing:.04em; color:var(--ink-soft);">click on an image to expand</div>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px;">
+      <div>
+        <div style="border-radius:var(--radius); overflow:hidden; border:1px solid var(--line); aspect-ratio:3120/1200;">
+          <img class="lightbox-trigger" src="../assets/img/heuristic-jt.jpg" alt="Heuristic analysis matrix evaluating a competing platform against Nielsen's 10 usability heuristics, with severity ratings and recommendations" style="width:100%; height:100%; object-fit:cover; display:block;">
+        </div>
+        <p style="color:var(--ink-soft); font-size:.78rem; line-height:1.6; margin:10px 0 0;">
+          Step 01, scoring a competing platform against Nielsen's 10 heuristics by severity, with a
+          recommendation for each.
+        </p>
+      </div>
+      <div>
+        <div style="border-radius:var(--radius); overflow:hidden; border:1px solid var(--line); aspect-ratio:2630/1500;">
+          <img class="lightbox-trigger" src="../assets/img/jt-whiteboarding.jpg" alt="Whiteboard photos from a Crazy 8s sketching session, showing individual ideation on a growing tracker concept, a whole-journey update flow, user auth scoping, and a map versus AI-suggested comparison view" style="width:100%; height:100%; object-fit:cover; display:block;">
+        </div>
+        <p style="color:var(--ink-soft); font-size:.78rem; line-height:1.6; margin:10px 0 0;">
+          Step 03, individual sketches on the whiteboard before converging as a group on what to
+          bring to sponsors.
+        </p>
+      </div>
+      <div>
+        <div style="border-radius:var(--radius); overflow:hidden; border:1px solid var(--line); aspect-ratio:1930/1086;">
+          <img class="lightbox-trigger" src="../assets/img/jt-presentation-crop.png" alt="Annotated slide from the final sponsor presentation, showing the suggestion card and evidence panel with callouts on verification timestamps and evidence-based rationale for building user trust" style="width:100%; height:100%; object-fit:cover; display:block;">
+        </div>
+        <p style="color:var(--ink-soft); font-size:.78rem; line-height:1.6; margin:10px 0 0;">
+          Step 05, walking sponsors through the annotated final design, verification timestamps and
+          evidence-backed rationale as the two decisions we called out.
+        </p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="cs-section">
+<section class="cs-section" id="solution" style="scroll-margin-top: 100px;">
   <div class="cs-section-label">The solution</div>
   <h2 style="font-family:'Fraunces', serif; font-weight:700; font-size:1.6rem; margin:0 0 14px;">An <em style="color:var(--accent); font-style:italic;">agentic AI</em> maintenance agent</h2>
   <p style="color:var(--ink-soft); font-size:.94rem; max-width:70ch; margin:0 0 24px;">
     The final design introduces two complementary AI capabilities. Together they reduce manual
     maintenance, improve visibility into outdated content, and keep users in control at every step.
   </p>
+
+  <div class="cs-chart-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:center; margin-bottom:36px;">
+    <div style="border-radius:var(--radius); overflow:hidden; border:1px solid var(--line); background:#fff;">
+      <img class="lightbox-trigger" src="../assets/img/jt-flow-overview.png" alt="Flowchart of the full agent suggestion flow, from entry points like workspace and journey map notifications, through the suggestion and intelligence agent interfaces, to reviewing evidence, walkthroughs, and approve, deny, or skip actions" style="width:100%; height:100%; object-fit:contain; display:block;">
+    </div>
+    <div>
+      <div style="font-family:'IBM Plex Mono', monospace; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin-bottom:10px;">The full flow</div>
+      <p style="color:var(--ink-soft); font-size:.88rem; line-height:1.7; margin:0 0 14px;">
+        Users can enter the experience through several entry points, an agent notification on the
+        workspace, an agent notification on a specific journey map, or the chat interface directly.
+        From there they can review a suggestion in detail, explore the supporting evidence, ask AI
+        for more context, or step through a guided walkthrough before deciding to approve, deny, or
+        skip.
+      </p>
+      <p style="color:var(--ink-soft); font-size:.88rem; line-height:1.7; margin:0;">
+        To reduce the risk of unintended decisions, approved and denied suggestions stay accessible
+        afterward, so users can revisit their supporting context and undo a decision if needed.
+      </p>
+    </div>
+  </div>
 
   <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:start;">
     <div style="border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); padding:24px;">
@@ -194,19 +288,32 @@
       </div>
     </div>
 
-    <div style="border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); padding:24px;">
+    <div class="reactive-card" style="border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); padding:24px;">
       <span class="tag" style="margin-bottom:14px; display:inline-block;">Reactive · Prompt AI</span>
-      <h3 style="font-family:'Manrope', sans-serif; font-weight:700; font-size:1.05rem; margin:0 0 10px;">Reactive intelligence agent</h3>
-      <p style="color:var(--ink-soft); font-size:.85rem; line-height:1.65; margin:0 0 14px;">
-        Users told us they wanted to ask questions about their journey and get direct answers without
-        digging through data. This agent is fully reactive and user-initiated, letting people engage
-        with AI on their own terms through natural conversation linked to specific map elements.
-      </p>
-      <div style="border-radius:calc(var(--radius) - 4px); overflow:hidden; max-height:420px; background:#000; display:flex; justify-content:center;">
-        <video style="height:420px; width:auto; max-width:100%; object-fit:contain; display:block;"
-          src="../assets/video/jt-ai-agent.mp4"
-          poster="../assets/img/jt-ai-agent-poster.jpg"
-          controls muted playsinline preload="metadata"></video>
+      <div class="reactive-card-grid" style="display:grid; grid-template-columns:1fr auto; gap:24px; align-items:start;">
+        <div>
+          <h3 style="font-family:'Manrope', sans-serif; font-weight:700; font-size:1.05rem; margin:0 0 10px;">Reactive intelligence agent</h3>
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div style="border-left:3px solid var(--c2); padding-left:12px;">
+              <div style="font-family:'Manrope', sans-serif; font-weight:700; font-size:.85rem; color:var(--ink);">User-initiated</div>
+              <div style="font-family:'Manrope', sans-serif; font-size:.8rem; color:var(--ink-soft); margin-top:2px;">Fully reactive, only activates when someone chooses to ask</div>
+            </div>
+            <div style="border-left:3px solid var(--c2); padding-left:12px;">
+              <div style="font-family:'Manrope', sans-serif; font-weight:700; font-size:.85rem; color:var(--ink);">Ask, don't dig</div>
+              <div style="font-family:'Manrope', sans-serif; font-size:.8rem; color:var(--ink-soft); margin-top:2px;">Get direct answers about the journey instead of hunting through data</div>
+            </div>
+            <div style="border-left:3px solid var(--c2); padding-left:12px;">
+              <div style="font-family:'Manrope', sans-serif; font-weight:700; font-size:.85rem; color:var(--ink);">Linked to context</div>
+              <div style="font-family:'Manrope', sans-serif; font-size:.8rem; color:var(--ink-soft); margin-top:2px;">Conversation stays grounded in the specific map element being discussed</div>
+            </div>
+          </div>
+        </div>
+        <div style="border-radius:calc(var(--radius) - 4px); overflow:hidden; width:clamp(230px,34vw,320px); aspect-ratio:498/1112; border:1px solid var(--line); flex-shrink:0;">
+          <video style="width:100%; height:100%; object-fit:cover; display:block;"
+            src="../assets/video/jt-ai-agent.mp4"
+            poster="../assets/img/jt-ai-agent-poster.jpg"
+            controls muted playsinline preload="metadata"></video>
+        </div>
       </div>
     </div>
   </div>
@@ -234,18 +341,24 @@
 
 <section class="cs-section">
   <div class="cs-section-label">Where it stands</div>
-  <div class="cs-outcome-grid">
+  <div class="cs-outcome-grid cs-outcome-4col">
     <div class="credential" style="--credential-accent: var(--c1);">
       <div class="credential-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
       </div>
-      <b>Led design</b>Directed end-to-end UX across an 8-person Purdue team
+      <b>Led design</b>Directed end-to-end UX across a 9-person Purdue team
     </div>
     <div class="credential" style="--credential-accent: var(--c4);">
       <div class="credential-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
       </div>
-      <b>Validated with users</b>6 usability tests synthesized into iterative design changes
+      <b>Low friction, validated</b>6 usability tests averaged a 3 out of 10 task difficulty rating
+    </div>
+    <div class="credential" style="--credential-accent: var(--accent);">
+      <div class="credential-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+      </div>
+      <b>Trust through evidence</b>Testers specifically called out the cited evidence as building confidence in AI suggestions
     </div>
     <div class="credential" style="--credential-accent: var(--c3);">
       <div class="credential-icon">
@@ -258,9 +371,10 @@
 
 <section class="cs-section">
   <div class="cs-section-label">Reflection</div>
-  <p class="cs-reflection">"Leading the sponsor meetings taught me more about translating design into
-  business value than any studio project could. When you're speaking to a CEO, 'it looks better'
-  isn't a reason, 'here's the trust we're rebuilding' is."</p>
+  <p class="cs-reflection" style="max-width:none;">"This was my first time working on an agentic AI product, so there was a lot
+  of context research and understanding I had to build before I could even start designing. Working
+  across a 9-person team also pushed me to communicate design decisions more clearly, since not
+  everyone was looking at the problem the same way I was."</p>
 </section>
 
 <div class="cs-footer-nav">
@@ -271,10 +385,27 @@
   <span style="font-family:'IBM Plex Mono', monospace; font-size:.75rem; color:var(--ink-soft);">Confidential · NDA Project</span>
 </div>
 
+<div class="lightbox-overlay" id="lightboxOverlay" role="dialog" aria-modal="true" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close expanded image">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+  </button>
+  <img id="lightboxImg" src="" alt="">
+  <div class="lightbox-hint">Click anywhere, or press Esc, to close</div>
+</div>
+
 <script src="../assets/script.js"></script>
 <script>
 document.querySelectorAll('.cs-back, .cs-footer-nav a').forEach(link=>{
   link.addEventListener('click', ()=> tone(329.63, 0.16, 'sine', 0.035, 0, { glide:true }));
+});
+
+document.querySelectorAll('a[href="#solution"]').forEach(link=>{
+  link.addEventListener('click', (e)=>{
+    e.preventDefault();
+    const target = document.getElementById('solution');
+    if(target) target.scrollIntoView({ behavior:'smooth', block:'start' });
+    tone(440, 0.18, 'sine', 0.04, 0, { glide:true });
+  });
 });
 
 document.querySelectorAll('.cs-outcome-4col .credential').forEach((el, i)=>{
@@ -296,6 +427,38 @@ document.querySelectorAll('video').forEach((v, i)=>{
     tone(587.33, 0.18, 'sine', 0.028, 0.06);
   });
 });
+
+/* ---------------- Lightbox: click any process/solution image to expand ---------------- */
+(function(){
+  const overlay = document.getElementById('lightboxOverlay');
+  const overlayImg = document.getElementById('lightboxImg');
+  const closeBtn = document.getElementById('lightboxClose');
+  if(!overlay || !overlayImg) return;
+
+  function openLightbox(src, alt){
+    overlayImg.src = src;
+    overlayImg.alt = alt || '';
+    overlay.classList.add('show');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    tone(392.00, 0.18, 'sine', 0.035, 0, { glide:true });
+  }
+  function closeLightbox(){
+    overlay.classList.remove('show');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    tone(329.63, 0.15, 'sine', 0.03, 0, { glide:true });
+  }
+
+  document.querySelectorAll('.lightbox-trigger').forEach(img=>{
+    img.addEventListener('click', ()=> openLightbox(img.currentSrc || img.src, img.alt));
+  });
+  closeBtn.addEventListener('click', closeLightbox);
+  overlay.addEventListener('click', (e)=>{ if(e.target === overlay) closeLightbox(); });
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape' && overlay.classList.contains('show')) closeLightbox();
+  });
+})();
 </script>
 </body>
 </html>
